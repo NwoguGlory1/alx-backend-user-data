@@ -5,6 +5,7 @@ import logging
 
 
 def filter_datum(fields, redaction, message, separator) -> str:
+    """ """
     pattern = (
         f"({'|'.join(f'{re.escape(field)}=.*?(?={re.escape(separator)}|$)' for field in fields)})"
     )
@@ -22,7 +23,9 @@ def filter_datum(fields, redaction, message, separator) -> str:
     SEPARATOR = ";"
 
     def __init__(self):
+        """ """
         super(RedactingFormatter, self).__init__(self.FORMAT)
 
     def format(self, record: logging.LogRecord) -> str:
+        """ """
         NotImplementedError
