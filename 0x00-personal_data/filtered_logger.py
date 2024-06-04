@@ -5,7 +5,7 @@ import logging
 
 
 def filter_datum(fields, redaction, message, separator) -> str:
-    """ """
+    """ function that returns the log message obfuscated """
     pattern = (
         f"({'|'.join(f'{re.escape(field)}=.*?(?={re.escape(separator)}|$)' for field in fields)})"
     )
