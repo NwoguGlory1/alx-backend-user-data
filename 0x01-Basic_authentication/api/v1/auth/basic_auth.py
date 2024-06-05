@@ -9,7 +9,7 @@ from typing import TypeVar
 
 
 class BasicAuth(Auth):
-    """ Basic Authentication Class """
+    """ Class of Basic Authentication """
 
     def extract_base64_authorization_header(self,
                                             authorization_header: str) -> str:
