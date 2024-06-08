@@ -57,5 +57,4 @@ class Auth:
             return None
 
         session_id = request.cookies.get(SESSION_NAME)
-
         return session_id
