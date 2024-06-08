@@ -33,3 +33,4 @@ class SessionAuth(Auth):
         .get() is used to access the value user_id for the key session_id
         """
         user_id = self.user_id_by_session_id.get(session_id)
+        return user_id
