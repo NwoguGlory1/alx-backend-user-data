@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """ Module of Session Authentication """
 
+
 from api.v1.auth.auth import Auth
+from models.user import User
 import uuid
 
 
@@ -44,5 +46,6 @@ class SessionAuth(Auth):
             return None
 
         user_id = self.user_id_for_session_id(session_id)
-
+        if user_id is None:
+            return None
         return User.get(user_id)
