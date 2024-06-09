@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
 """ Module of Session Authentication """
 
-
 from api.v1.auth.auth import Auth
 from models.user import User
 import uuid
-
 
 class SessionAuth(Auth):
     """ Session Authentication Class """
@@ -39,9 +37,7 @@ class SessionAuth(Auth):
 
     def current_user(self, request=None):
         """Returns a User instance based on a cookie value"""
-
         session_id = self.session_cookie(request)
-
         if session_id is None:
             return None
 
@@ -51,15 +47,15 @@ class SessionAuth(Auth):
         return User.get(user_id)
 
     def destroy_session(self, request=None):
-        """ """
+        """ method to destroy a session """
         if request is None:
             return False
 
         session_id = self.session_cookie(request)
         if session_id is None:
             return False
-        user_id = self.user_id_for_session_id(session_id)
 
+        user_id = self.user_id_for_session_id(session_id)
         if not user_id:
             return False
 
