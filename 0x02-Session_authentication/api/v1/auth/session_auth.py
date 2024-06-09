@@ -65,7 +65,7 @@ class SessionAuth(Auth):
 
         try:
             del self.user_id_by_session_id[session_id]
-            except Exception:
-                pass
+        except Exception:
+            pass
 
-            return True
+        return True
