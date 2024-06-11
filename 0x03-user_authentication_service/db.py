@@ -37,16 +37,13 @@ class DB:
         returns a User object.
         """
         user = User(email=email, hashed_password=hashed_password)
-        """
-        Create a new User object with args
-        """
-        self._session.add(user)
-        """
-        use the DB class's _session property to interact
-        with the database.
-        Add the User object to the database session
-        with _session.add().
-        """
-        self._session.commit()
-        """ Comit changes with  _session.commit()."""
+        # Create a new User object with args
+        session = self._session
+        session.add(user)
+        # use the DB class's _session property to interact
+        # with the database.
+        # Add the User object to the database session
+        # with _session.add().
+        session.commit()
+        # Comit changes with  _session.commit()
         return user
