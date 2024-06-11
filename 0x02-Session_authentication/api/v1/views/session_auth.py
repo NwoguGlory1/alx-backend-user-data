@@ -63,6 +63,7 @@ def logout():
     from api.v1.app import auth
 
     deleted = auth.destroy_session(request)
+    """calls method to destroy usersession associated with request"""
 
     if not deleted:
         abort(404)
