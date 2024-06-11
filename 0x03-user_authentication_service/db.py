@@ -7,7 +7,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.session import Session
 
 from user import Base
-
+from user import User
 
 class DB:
     """DB class
@@ -30,8 +30,23 @@ class DB:
             self.__session = DBSession()
         return self.__session
 
-    def add_user() ->
-    """
-    has two required string args: email and hashed_password
-    returns a User object.
-    """
+    def add_user(self, email: str, hashed_password: str) -> User:
+        """
+        method to save the user to the database.
+        Has two required string args: email and hashed_password
+        returns a User object.
+        """
+        user = User(email=email, hashed_password=hashed_password)
+        """
+        Create a new User object with args
+        """
+        self._session.add(user)
+        """
+        use the DB class's _session property to interact
+        with the database.
+        Add the User object to the database session
+        with _session.add().
+        """
+        self._session.commit()
+        """ Comit changes with  _session.commit()."""
+        return user
