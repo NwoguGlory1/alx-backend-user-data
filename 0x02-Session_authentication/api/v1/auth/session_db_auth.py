@@ -74,5 +74,4 @@ class SessionDBAuth(SessionExpAuth):
             UserSession.save_to_file()
         except Exception:
             return False
-
         return True
