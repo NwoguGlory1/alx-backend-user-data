@@ -10,6 +10,7 @@ from sqlalchemy.exc import InvalidRequestError
 
 from user import Base, User
 
+
 class DB:
     """DB class
     """
