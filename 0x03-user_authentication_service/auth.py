@@ -7,6 +7,7 @@ from sqlalchemy.orm.exc import NoResultFound
 import bcrypt
 # Import the necessary libraries, exception
 
+
 def _hash_password(password: str) -> bytes:
     """
     method to use bcrypt.hashpw to
@@ -16,6 +17,7 @@ def _hash_password(password: str) -> bytes:
     salt = bcrypt.gensalt()
     hashed_password = bcrypt.hashpw(password_in_bytes, salt)
     return hashed_password
+
 
 class Auth:
     """Auth class to interact with the authentication database.
