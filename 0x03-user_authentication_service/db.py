@@ -70,11 +70,11 @@ class DB:
 
         Args:
         - user_id (int): ID of the user to update.
-        - **kwargs: Arbitrary keyword arguments containing attributes to update.
+        - **kwargs: Arbitrary keyword args containing attributes to update.
 
         Raises:
         - NoResultFound: If no user with the given user_id is found.
-        - ValueError: If any of the kwargs do not correspond to valid user attributes.
+        - ValueError: If any kwargs do not correspond to valid user attributes.
         """
         located_user = self.find_user_by(id=user_id)
 
@@ -84,4 +84,4 @@ class DB:
                 raise ValueError()
             for key, value in kwargs.items():
                 setattr(located_user, key, value)
-            self._session.commit() 
+            self._session.commit()
