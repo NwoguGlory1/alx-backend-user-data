@@ -52,7 +52,7 @@ class Auth:
                 # Retrieve the hashed password from the user object
                 stored_hashed_password = located_user.hashed_password
                 # Check if provided password matches stored hashed pa..
-                if bcrypt.checkpw(password.encode("UTF-8"), stored_hashed_password):
+                if bcrypt.checkpw(password.encode(), stored_hashed_password):
                     return True
         except NoResultFound:
             pass
