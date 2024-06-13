@@ -19,6 +19,7 @@ def welcome():
     """ Defines a route for the root URL ("/")"""
     return jsonify({"message": "Bienvenue"})
 
+
 @app.route('/users', methods=['POST'])
 def users():
     """ Registers a new user """
@@ -29,7 +30,6 @@ def users():
         return jsonify({"email": email, "message": "user created"})
     except ValueError:
         return jsonify({"message": "User already exists"}), 400
-
 
 
 if __name__ == "__main__":
