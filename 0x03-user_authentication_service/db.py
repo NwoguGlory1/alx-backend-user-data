@@ -65,13 +65,23 @@ class DB:
         return user_first_row
 
     def update_user(self, user_id: int, **kwargs) -> None:
-    """ """
-   located_user = self.find_user_by.(id=user_id)
-   
-   column_names = User.__table__.columns.keys()
-   for key in column_names:
-    if key not in column_names:
-        raise ValueError()
-    setattr(user, key, value)
-   self._session.commit()
-    
+        """
+        Update user attributes in the database.
+
+        Args:
+        - user_id (int): ID of the user to update.
+        - **kwargs: Arbitrary keyword arguments containing attributes to update.
+
+        Raises:
+        - NoResultFound: If no user with the given user_id is found.
+        - ValueError: If any of the kwargs do not correspond to valid user attributes.
+        """
+        located_user = self.find_user_by(id=user_id)
+
+        column_names = User.__table__.columns.keys()
+        for key in kwargs.keys():
+            if key not in column_names:
+                raise ValueError()
+            for key, value in kwargs.items():
+                setattr(located_user, key, value)
+            self._session.commit() 
