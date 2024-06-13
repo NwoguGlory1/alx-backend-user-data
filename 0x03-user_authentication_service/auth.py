@@ -64,4 +64,4 @@ class Auth:
         # Generate a new UUID
         new_uuid = uuid.uuid4()
         new_uuid_str = str(new_uuid)
-        return
+        return new_uuid_str
