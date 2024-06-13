@@ -6,10 +6,12 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 """ flask instance"""
 
+
 @app.route('/', methods=['GET'])
 def welcome():
     """ Defines a route for the root URL ("/")"""
     return jsonify({"message": "Bienvenue"})
+
 
 if __name__ == "__main__":
     """ ensures script is run directly """
