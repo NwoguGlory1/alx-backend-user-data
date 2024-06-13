@@ -64,4 +64,14 @@ class DB:
 
         return user_first_row
 
-    db
+    def update_user(self, user_id: int, **kwargs) -> None:
+    """ """
+   located_user = self.find_user_by.(id=user_id)
+   
+   column_names = User.__table__.columns.keys()
+   for key in column_names:
+    if key not in column_names:
+        raise ValueError()
+    setattr(user, key, value)
+   self._session.commit()
+    
