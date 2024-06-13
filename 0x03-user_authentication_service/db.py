@@ -63,3 +63,5 @@ class DB:
             raise NoResultFound
 
         return user_first_row
+
+    db
