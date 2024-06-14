@@ -67,16 +67,17 @@ class Auth:
 
     def create_session(self, email: str ) -> str:
         """ if located_user is not None:"""
+        try:
         # Try to find a user with the given email
-        found_user = self._db.find_user_by(email=email)
-        if found_user is not None:
-            # Generate a new UUID
-            stored_useruuid = _generate_uuid()
-            # Update the user's session ID in the database
-            session_id = self._db.update_user(
-            found_user,
-            session_id=stored_useruuid
-            )
-            return session_id
-        else:
+            found_user = self._db.find_user_by(email=email)
+            if found_user is not None:
+                # Generate a new UUID
+                stored_useruuid = _generate_uuid()
+                # Update the user's session ID in the database
+                session_id = self._db.update_user(
+                        found_user,
+                session_id=stored_useruuid
+                )
+                return session_id
+        except NoResultFound:
             return None
