@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Basic Flask app script
 """
-from flask import Flask, abort, jsonify, request
+from flask import Flask, redirect, abort, jsonify, request
 from auth import Auth
 from sqlalchemy.orm.exc import NoResultFound
 
