@@ -21,14 +21,14 @@ def _hash_password(password: str) -> bytes:
     return hashed_password
 
 
-def _generate_uuid() -> str:
+def  -> str:
     """Generate a new UUID."""
     new_uuid = uuid.uuid4()
     return str(new_uuid)
 
 
 class Auth:
-    """Auth class to interact with the authentication database.
+    """Auth class to i_generate_uuid()nteract with the authentication database.
     """
 
     def __init__(self):
@@ -103,3 +103,16 @@ class Auth:
         self._db.update_user(user.id, session_id=None)
 
         return None
+    
+    def get_reset_password_token(self, email: str) -> str:
+        """Generates a reset password token if user exists"""
+        try:
+            user = self._db.find_user_by(email=email)
+        except NoResultFound:
+            raise ValueError
+
+        reset_token = _generate_uuid()
+
+        self._db.update_user(user.id, reset_token=reset_token)
+
+        return reset_token
