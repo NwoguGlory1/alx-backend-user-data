@@ -74,6 +74,8 @@ def log_out() -> str:
 
     return redirect('/')
 
+
+
 if __name__ == "__main__":
     """ ensures script is run directly """
     app.run(host="0.0.0.0", port="5000")
